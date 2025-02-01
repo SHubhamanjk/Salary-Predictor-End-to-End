@@ -7,4 +7,5 @@ matplotlib
 seaborn
 xgboost
 lightgbm
--e .
+dill
+# -e .
