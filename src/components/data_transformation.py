@@ -1,6 +1,8 @@
 import sys
 import os
 import pandas as pd
+import numpy as np
+import pickle
 from dataclasses import dataclass
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from src.exception import CustomException
@@ -13,6 +15,7 @@ class DataTransformationConfig:
     processed_test_file_path = os.path.join("artifacts", "processed_test.csv")
     target_train_file_path = os.path.join("artifacts", "target_train.csv")
     target_test_file_path = os.path.join("artifacts", "target_test.csv")
+    preprocessor_file_path = os.path.join("artifacts", "preprocessor.pkl")  # Save preprocessor
 
 
 class DataTransformation:
@@ -69,11 +72,22 @@ class DataTransformation:
 
             logging.info("Processed data saved successfully.")
 
+            # Save the preprocessor (OneHotEncoder & LabelEncoder) as a pickle file
+            preprocessor = {
+                "one_hot_encoder": one_hot_encoder,
+                "label_encoder": le
+            }
+            with open(self.data_transformation_config.preprocessor_file_path, 'wb') as f:
+                pickle.dump(preprocessor, f)
+
+            logging.info("Preprocessor saved successfully.")
+
             return (
                 self.data_transformation_config.processed_train_file_path,
                 self.data_transformation_config.processed_test_file_path,
                 self.data_transformation_config.target_train_file_path,
-                self.data_transformation_config.target_test_file_path
+                self.data_transformation_config.target_test_file_path,
+                self.data_transformation_config.preprocessor_file_path  # Returning pickle file path
             )
 
         except Exception as e:
