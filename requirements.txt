@@ -8,4 +8,11 @@ seaborn
 xgboost
 lightgbm
 dill
-# -e .
+langchain
+langchain_groq
+python-dotenv
+faiss-cpu
+langchain_community
+duckduckgo-search
+Wikipedia
+-e .
