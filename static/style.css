@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/static/fabio-oyXis2kALVg-unsplash.jpg);
+}
+
+.container {
+    background-color: #030303;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    max-width: 600px; 
+    width: 100%;
+    
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: yellow;
+    text-align: center;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    
+}
+
+button {
+    margin-top: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2bff00;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #ffff00;
+    font-size: 20px;
+}
+
+.select2-container .select2-selection--single {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #333;
+    line-height: 40px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px;
+    right: 10px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; 
+    }
+
+    h1 {
+        font-size: 20px; 
+    }
+
+    label {
+        font-size: 14px; 
+    }
+
+    input, select, button {
+        font-size: 14px; 
+        padding: 8px; 
+    }
+
+    h2 {
+        font-size: 18px; 
+    }
+}

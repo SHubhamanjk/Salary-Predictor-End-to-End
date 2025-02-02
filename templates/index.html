@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Predictor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="icon" href="{{ url_for('static', filename='fav.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>Salary Predictor</h1>
+        <form action="/predict" method="POST">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="education_level">Education Level</label>
+            <select id="education_level" name="education_level">
+                <option value="Bachelors">Bachelors</option>
+                <option value="Masters">Masters</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <label for="experience">Years of Experience</label>
+            <input type="number" id="experience" name="experience" required>
+
+            <label for="job_title">Job Title</label>
+            <select id="job_title" name="job_title" class="job-title-select">
+                {% for job in job_titles %}
+                <option value="{{ job }}">{{ job }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Predict Salary</button>
+        </form>
+        {% if prediction %}
+        <h2>Expected Salary: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.job-title-select').select2({
+                placeholder: "Select a job title",
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>
