@@ -2,7 +2,7 @@ import os
 import sys
 from dataclasses import dataclass
 from sklearn.metrics import r2_score
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
 import pandas as pd
 
 from src.exception import CustomException
@@ -31,7 +31,7 @@ class ModelTrainer:
 
             logging.info("Read train and test data successfully")
 
-            model=RandomForestRegressor()
+            model=KNeighborsRegressor(algorithm='kd_tree', leaf_size=10, metric='manhattan', n_neighbors=20, p=1, weights='distance')
             logging.info("Model training initiated")
             model.fit(X_train,y_train)
             logging.info("Model training completed")
