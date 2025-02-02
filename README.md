@@ -51,13 +51,6 @@ The project follows a complete ML pipeline:
 - Get an estimated salary based on input details.
 - Use the chatbot to ask career-related questions, receive career guidance, and explore job opportunities.
 
-## Future Enhancements
-- Adding more job sectors and region-based predictions.
-- Implementing cloud-based model deployment.
-- Enhancing UI/UX for better user experience.
-- Improving chatbot responses with advanced NLP models and AI-driven career suggestions.
-
-
 ## License
 This project is licensed under the MIT License.
 
